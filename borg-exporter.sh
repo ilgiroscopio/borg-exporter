@@ -21,7 +21,7 @@ fi
 DEDUPLICATED_SIZE=$(echo "$INFO" | awk '/Deduplicated size/ { getline; print $7*1024*1024*1024 }')
 
 {
-  echo "borg_backups_total{repository=$BORG_REPO_NAME} $ARCHIVES_COUNT"
-  echo "borg_last_backup_timestamp{repository=$BORG_REPO_NAME} $LATEST_ARCHIVE_TIMESTAMP"
-  echo "borg_deduped_size{repository=$BORG_REPO_NAME} $DEDUPLICATED_SIZE"
+  echo "borg_backups_total{repository='$BORG_REPO_NAME'} $ARCHIVES_COUNT"
+  echo "borg_last_backup_timestamp{repository='$BORG_REPO_NAME'} $LATEST_ARCHIVE_TIMESTAMP"
+  echo "borg_deduped_size{repository='$BORG_REPO_NAME'} $DEDUPLICATED_SIZE"
 } >> "$COLLECTOR_DIR"/borg.prom
