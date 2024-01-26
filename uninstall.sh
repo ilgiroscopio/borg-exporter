@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-rm /etc/borg-exporter
+rm ~/.borgexporterconfig
 rm /usr/local/bin/borg-exporter.sh
 systemctl disable borg-exporter.timer
 systemctl stop borg-exporter.timer
